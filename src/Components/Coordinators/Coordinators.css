@@ -48,14 +48,14 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Image */
 .card-img-top {
-  width: 100%;
-  height: 220px; /* Fixed height for images */
-  object-fit: cover;
+  width: 100%; /* Maintain the full width of the card */
+  height: auto; /* Let the height adjust automatically based on the image's original aspect ratio */
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
   background-color: #eaeaea; /* Placeholder background for transparent images */
   transition: opacity 0.3s ease;
 }
+
 .card:hover .card-img-top {
   opacity: 0.9;
 }
@@ -81,8 +81,15 @@
 
 /* Responsive Design */
 
-/* Large Tablets - 4 Cards per Row */
-@media (max-width: 992px) {
+/* Large Desktops - 5 Cards per Row */
+@media (min-width: 1200px) {
+  .card {
+    flex: 1 1 calc(20% - 30px); /* 5 cards per row */
+  }
+}
+
+/* Desktops - 4 Cards per Row */
+@media (min-width: 992px) and (max-width: 1199px) {
   .card {
     flex: 1 1 calc(25% - 30px); /* 4 cards per row */
   }
@@ -92,8 +99,23 @@
   }
 }
 
+/* Large Tablets - 3 Cards per Row */
+@media (min-width: 768px) and (max-width: 991px) {
+  .card {
+    flex: 1 1 calc(33.33% - 30px); /* 3 cards per row */
+  }
+
+  .card-img-top {
+    height: 200px; /* Adjusted for tablets */
+  }
+
+  .section-header {
+    font-size: 1.8em;
+  }
+}
+
 /* Small Tablets - 2 Cards per Row */
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 767px) {
   .card {
     flex: 1 1 calc(50% - 30px); /* 2 cards per row */
   }
@@ -103,7 +125,7 @@
   }
 
   .section-header {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 }
 
@@ -119,7 +141,7 @@
   }
 
   .section-header {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 
   .card-title {
