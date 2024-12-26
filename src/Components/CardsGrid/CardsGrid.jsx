@@ -6,25 +6,25 @@ const CardsGrid = () => {
       id: 1,
       title: "Prerana Sarode",
       description: "Interaction Coordinator",
-      img: 'https://res.cloudinary.com/delnxjp38/image/upload/v1735146780/Prerana_Sarode_EventCoordinator_lhg0ul.jpg',
+      img: "https://res.cloudinary.com/delnxjp38/image/upload/v1735146780/Prerana_Sarode_EventCoordinator_lhg0ul.jpg",
     },
     {
       id: 2,
       title: "Atharva Gujar",
-      description: "This is the second card.",
-      img:'https://res.cloudinary.com/delnxjp38/image/upload/v1735146725/Atharva_Gujar_EventCoordinator_fnsct2.jpg',
+      description: "NCI Coordinator",
+      img: "https://res.cloudinary.com/delnxjp38/image/upload/v1735146725/Atharva_Gujar_EventCoordinator_fnsct2.jpg",
     },
     {
       id: 3,
       title: "Atharva Fude",
-      description: "This is the third card.",
-      img:'https://res.cloudinary.com/delnxjp38/image/upload/v1735146706/Atharva_Funde_vz97y8.png',
+      description: "Interaction Student Coordinator",
+      img: "https://res.cloudinary.com/delnxjp38/image/upload/v1735146706/Atharva_Funde_vz97y8.png",
     },
     {
       id: 4,
       title: "Himani Thombre",
-      description: "This is the fourth card.",
-      img: 'https://res.cloudinary.com/delnxjp38/image/upload/v1735146708/Himani_Thombre_m6i0uj.png',
+      description: "Interaction Student Coordinator",
+      img: "https://res.cloudinary.com/delnxjp38/image/upload/v1735146708/Himani_Thombre_m6i0uj.png",
     },
   ];
 
