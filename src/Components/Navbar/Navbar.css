@@ -8,7 +8,7 @@
   top: 0;
   z-index: 1000;
   background-color: #004692b3;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,7 +21,7 @@
   transition: color 0.3s ease-in-out;
 }
 
-.logo a:hover {
+.logoI a:hover {
   color: #ff6340;
 }
 
@@ -29,24 +29,32 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
   cursor: pointer;
+  z-index: 1100; /* To ensure it stays above the menu */
 }
 
 .hamburger .bar {
-  width: 30px;
+  width: 100%;
   height: 3px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-.hamburger:hover .bar:nth-child(1) {
-  transform: translateY(6px);
+/* Hamburger toggle animation */
+.hamburger.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.hamburger:hover .bar:nth-child(3) {
-  transform: translateY(-6px);
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Navigation Links */
@@ -64,7 +72,7 @@
   font-weight: bold;
   text-transform: capitalize;
   position: relative;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s ease-in-out;
 }
 
 .nav-links li a:hover {
@@ -72,32 +80,20 @@
   transform: scale(1.1);
 }
 
-/* Underline Effect */
-.nav-links li a::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #ff4081;
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-links li a:hover::after {
-  width: 100%;
-}
-
 /* Register Button */
 .register-button {
   background-color: #ff6340;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 30px;
   border: none;
   border-radius: 25px;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
+}
+
+.register-button:hover {
+  background-color: #ff4081;
 }
 
 /* Mobile Navigation Styles */
@@ -108,30 +104,29 @@
 
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 0;
     right: 0;
-    left: 0;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     background-color: #001e3c;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    align-items: center;
     gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
   }
 
   .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateX(0);
   }
 
   .nav-links li a {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #ffffff;
     padding: 10px 0;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 
   .nav-links li a:hover {
@@ -140,24 +135,12 @@
   }
 
   .register-button {
-    font-size: 1.1rem;
-    padding: 12px 20px;
+    font-size: 1.3rem;
+    padding: 15px 25px;
   }
 
   /* Prevent body scroll when menu is open */
   body.menu-open {
     overflow: hidden;
-  }
-}
-
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
